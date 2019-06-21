@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+
+ mlflow-1-tracking:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+      args:
+        GIT_CONFIG_USER_NAME: $GIT_CONFIG_USER_NAME
+        GIT_CONFIG_EMAIL: $GIT_CONFIG_EMAIL
+    image: mlflow-1-tracking:latest
+    env_file:
+      - .env
+    environment:
+      PYTHONPATH: '/home/mlflow-1-tracking'
+      PROJECT_PATH: '/home/mlflow-1-tracking'
+      LANG: 'C.UTF-8'
+    ports:
+      - 8888:8888
+      - 5000:5000
+    volumes:
+      - ./:/home/mlflow-1-tracking
+      - ./config:/home/mlflow-1-tracking/config
+      - ./data:/home/mlflow-1-tracking/data
+      - ./mlruns:/home/mlflow-1-tracking/mlruns
+      - ./notebooks:/home/mlflow-1-tracking/notebooks
+      - ./src:/home/mlflow-1-tracking/src
