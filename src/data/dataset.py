@@ -1,5 +1,6 @@
-import pandas as pd
 from typing import Text
+
+import pandas as pd
 
 
 def get_dataset(dataset_path: Text) -> pd.DataFrame:

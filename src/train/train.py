@@ -1,3 +1,4 @@
+from typing import Text, Dict
 
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
@@ -5,7 +6,6 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.metrics import f1_score, make_scorer
-from typing import Text, Dict
 
 
 class UnsupportedClassifier(Exception):
@@ -37,7 +37,7 @@ def train(df: pd.DataFrame, target_column: Text, estimator_name: Text, param_gri
     f1_scorer = make_scorer(f1_score, average='weighted')
 
     clf = GridSearchCV(estimator=estimator,
-                       param_grid =  param_grid,
+                       param_grid=param_grid,
                        cv=cv,
                        verbose=1,
                        scoring=f1_scorer,
