@@ -14,14 +14,16 @@ def prepare_configs(config_path: Text):
 
     for config_name, config_params in config.items():
 
-        filepath = f'{experiments_folder}/{config_name}_config.yml'
-        with open(filepath, 'w') as config_file:
-            yaml.dump(
-                data=config_params,
-                stream=config_file,
-                default_flow_style=False
-            )
-            print(f'Save config: {filepath}')
+        if config_name != 'base':
+
+            filepath = f'{experiments_folder}/{config_name}_config.yml'
+            with open(filepath, 'w') as config_file:
+                yaml.dump(
+                    data=config_params,
+                    stream=config_file,
+                    default_flow_style=False
+                )
+                print(f'Save config: {filepath}')
 
 if __name__ == '__main__':
 
