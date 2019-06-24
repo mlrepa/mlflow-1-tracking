@@ -12,17 +12,16 @@ from src.data.dataset import get_dataset
 from src.evaluate.evaluate import evaluate
 
 
-def evaluate_model(config_path: Text, base_config_path: Text):
+def evaluate_model(config_path: Text):
 
     config = yaml.load(open(config_path), Loader=yaml.FullLoader)
-    base_config = yaml.load(open(base_config_path), Loader=yaml.FullLoader)
 
-    estimator_name = base_config['train']['estimator_name']
+    estimator_name = config['train']['estimator_name']
 
-    target_column = base_config['featurize']['target_column']
-    test_df = get_dataset(base_config['split_train_test']['test_csv'])
-    model_name = base_config['base']['model']['model_name']
-    models_folder = base_config['base']['model']['models_folder']
+    target_column = config['featurize']['target_column']
+    test_df = get_dataset(config['split_train_test']['test_csv'])
+    model_name = config['base']['model']['model_name']
+    models_folder = config['base']['model']['models_folder']
 
     model = joblib.load(os.path.join(models_folder, model_name))
 
@@ -35,8 +34,8 @@ def evaluate_model(config_path: Text, base_config_path: Text):
         'confusion_matrix': cm.tolist()
     }
     print(test_report)
-    filepath = os.path.join(base_config['base']['experiments']['experiments_folder'],
-                            config['metrics_file'])
+    filepath = os.path.join(config['base']['experiments']['experiments_folder'],
+                            config['evaluate']['metrics_file'])
     json.dump(obj=test_report, fp=open(filepath, 'w'), indent=2)
 
     # Logging into mlflow
@@ -50,10 +49,10 @@ def evaluate_model(config_path: Text, base_config_path: Text):
         print(run.info)
         print(run.info.run_uuid)
 
-        param_grid = base_config['train']['estimators'][estimator_name]['param_grid']
+        param_grid = config['train']['estimators'][estimator_name]['param_grid']
 
         log_param(key='estimator', value=estimator_name)
-        log_param(key='cv', value=base_config['train']['cv'])
+        log_param(key='cv', value=config['train']['cv'])
         for param, value in param_grid.items():
             log_param(key=param, value=value)
 
@@ -69,7 +68,6 @@ def evaluate_model(config_path: Text, base_config_path: Text):
 if __name__ == '__main__':
     args_parser = argparse.ArgumentParser()
     args_parser.add_argument('--config', dest='config', required=True)
-    args_parser.add_argument('--base_config', dest='base_config', required=True)
     args = args_parser.parse_args()
 
-    evaluate_model(config_path=args.config, base_config_path=args.base_config)
+    evaluate_model(config_path=args.config)

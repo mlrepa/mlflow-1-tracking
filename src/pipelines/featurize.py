@@ -11,10 +11,10 @@ def featurize(config_path: Text):
 
     config = yaml.load(open(config_path), Loader=yaml.FullLoader)
 
-    dataset = get_dataset(config['dataset_csv'])
+    dataset = get_dataset(config['featurize']['dataset_csv'])
     featured_dataset = extract_features(dataset)
 
-    filpath = config['featured_dataset_csv']
+    filpath = config['featurize']['featured_dataset_csv']
     featured_dataset.to_csv(filpath, index=False)
 
 
