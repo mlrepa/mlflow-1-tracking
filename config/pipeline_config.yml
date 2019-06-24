@@ -29,7 +29,7 @@ featurize:
 
 train:
   cv: 5
-  estimator_name: SVC
+  estimator_name: LogisticRegression
   estimators:
 
     LogisticRegression: # sklearn.linear_model.LogisticRegression
