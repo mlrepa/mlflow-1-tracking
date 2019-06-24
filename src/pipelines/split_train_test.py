@@ -11,7 +11,7 @@ def split_dataset(config_path: Text, base_config_path: Text):
     config = yaml.load(open(config_path), Loader=yaml.FullLoader)
     base_config = yaml.load(open(base_config_path), Loader=yaml.FullLoader)
 
-    dataset = get_dataset(base_config['featurize']['dataset_csv'])
+    dataset = get_dataset(base_config['featurize']['featured_dataset_csv'])
     target_column = base_config['featurize']['target_column']
     random_state = base_config['base']['random_state']
 
