@@ -4,7 +4,7 @@
 ## Clone this repository
 
 ```bash
-https://gitlab.com/tutorials-mlflow/mlflow-1-tracking
+https://gitlab.com/7labs.ru/tutorials/mlflow-1-tracking
 
 cd mlflow-1-tracking
 ```
