@@ -67,7 +67,7 @@ def evaluate_model(config_path: Text):
 
 if __name__ == '__main__':
     args_parser = argparse.ArgumentParser()
-    args_parser.add_argument('--config', dest='config', required=True)
+    args_parser.add_argument('--evaluate-config', dest='config', required=True)
     args = args_parser.parse_args()
 
     evaluate_model(config_path=args.config)
