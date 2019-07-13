@@ -1,6 +1,7 @@
 import argparse
+from typing import Text
+
 import yaml
-from ipywidgets import Text
 
 from src.data.dataset import get_dataset
 from src.transforms.trainsforms import transform_targets_to_numerics, split_dataset_in_train_test
