@@ -51,7 +51,7 @@ docker-compose up
 http://0.0.0.0:8888
 ```
 
-## Run mlflow ui
+## Open mlflow ui
 
 ```bash
 http://0.0.0.0:5000
