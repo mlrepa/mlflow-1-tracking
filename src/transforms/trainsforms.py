@@ -1,8 +1,8 @@
-from typing import Text, Tuple
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
+from typing import Text, Tuple
 
 
 def transform_targets_to_numerics(df: pd.DataFrame, target_column: Text) -> pd.DataFrame:

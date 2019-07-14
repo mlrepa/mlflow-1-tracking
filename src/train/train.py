@@ -1,4 +1,3 @@
-from typing import Text, Dict
 
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
@@ -6,6 +5,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.metrics import f1_score, make_scorer
+from typing import Text, Dict
 
 
 class UnsupportedClassifier(Exception):

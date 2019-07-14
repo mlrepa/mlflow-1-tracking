@@ -1,6 +1,5 @@
 import argparse
 from typing import Text
-
 import yaml
 
 from src.data.dataset import get_dataset

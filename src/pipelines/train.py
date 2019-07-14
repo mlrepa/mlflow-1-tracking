@@ -1,8 +1,7 @@
 import argparse
+import joblib
 import os
 from typing import Text
-
-import joblib
 import yaml
 
 from src.data.dataset import get_dataset
