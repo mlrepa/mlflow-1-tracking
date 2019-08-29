@@ -1,9 +1,8 @@
 import itertools
-from typing import  Text
-
 import matplotlib.colors
 import matplotlib.pyplot as plt
 import numpy as np
+from typing import  Text
 
 
 def plot_confusion_matrix(cm: np.array,

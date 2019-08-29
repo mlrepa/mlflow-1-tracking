@@ -31,20 +31,27 @@ Download iris.csv
 wget -P data/raw/ -nc https://raw.githubusercontent.com/uiuc-cse/data-fa14/gh-pages/data/iris.csv
 ```         
 
-### Build image
+## Build image
 
 ```bash
-ln -sf config/.env
-docker-compose build
+ln -sf config/.env && docker-compose build
 ```
 
-## Run JupyterLab or Jupyter Notebook
+
+## Run container
+```bash
+docker-compose up
+```
+
+# Start tutorial
+
+## Open JupyterLab
 
 ```bash
 http://0.0.0.0:8888
 ```
 
-## Run mlflow ui
+## Open mlflow ui
 
 ```bash
 http://0.0.0.0:5000

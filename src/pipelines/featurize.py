@@ -1,6 +1,5 @@
 import argparse
 from typing import Text
-
 import yaml
 
 from src.data.dataset import get_dataset
@@ -21,7 +20,7 @@ def featurize(config_path: Text):
 if __name__ == '__main__':
 
     args_parser = argparse.ArgumentParser()
-    args_parser.add_argument('--config', dest='config', required=True)
+    args_parser.add_argument('--featurize-config', dest='config', required=True)
     args = args_parser.parse_args()
 
     featurize(config_path=args.config)
