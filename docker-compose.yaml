@@ -21,8 +21,3 @@ services:
       - 5000:5000
     volumes:
       - ./:/home/mlflow-1-tracking
-      - ./config:/home/mlflow-1-tracking/config
-      - ./data:/home/mlflow-1-tracking/data
-      - ./mlruns:/home/mlflow-1-tracking/mlruns
-      - ./notebooks:/home/mlflow-1-tracking/notebooks
-      - ./src:/home/mlflow-1-tracking/src
