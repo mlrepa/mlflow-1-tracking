@@ -4,8 +4,7 @@ services:
 
  mlflow-1-tracking:
     build:
-      context: ./docker
-      dockerfile: Dockerfile
+      context: .
       args:
         GIT_CONFIG_USER_NAME: $GIT_CONFIG_USER_NAME
         GIT_CONFIG_EMAIL: $GIT_CONFIG_EMAIL
