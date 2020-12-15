@@ -1,0 +1,21 @@
+# folders
+
+# pycharm
+.idea
+
+# python
+__pycache__
+.ipynb_checkpoints
+.ipynb_checkpoints
+
+# mlflow
+mlruns/*
+
+# others
+.DS_Store
+
+
+# files
+
+# config
+.env
